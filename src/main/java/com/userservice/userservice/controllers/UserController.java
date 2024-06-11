@@ -50,4 +50,9 @@ public class UserController {
     public UserDto validateToken(@PathVariable("token")String token) throws InvalidTokenException{
         return UserDto.from(userService.validateToken(token));
     }
+    @GetMapping("/{id}")
+    public String getResponse(@PathVariable("id")Long id){
+        System.out.println("Received the request for id : " + id);
+        return new String("Got the request for user id : " + id);
+    }
 }
